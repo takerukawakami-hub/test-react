@@ -1,27 +1,21 @@
-import { useState } from 'react';
 import './App.css'
-import Button from './components/Button/Button.tsx'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import SamplePage from './pages/SamplePage'
 
 function App() {
 
-  const [count, setCount] = useState(0);
-  const handleClick =()=>{
-        setCount(count + 1);
-    }
+
 
   return (
     //Button関数の引数って考えよー。
-    <>
-      <h1>Hello World</h1>
-      <Button  type ={'submit'} disabled={false} onClick={handleClick}>
-        カウント:{count}
-        
-
-      </Button>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/sample-page' element={<SamplePage />} />
+      </Routes>
+    </BrowserRouter>
   )
 };
 
-export default App
-
+export default App;
